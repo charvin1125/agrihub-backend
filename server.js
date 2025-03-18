@@ -78,7 +78,7 @@ const cors = require("cors");
 const session = require("express-session");
 const bodyParser = require("body-parser");
 const path = require("path");
-require("dotenv").config(); // To use .env variables
+ // To use .env variables
 
 const userRoutes = require("./routes/userRoutes");
 const vendorRoutes = require("./routes/vendor");
