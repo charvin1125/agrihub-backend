@@ -181,10 +181,15 @@ const PORT = process.env.PORT || 5000;
 const MONGO_URI = process.env.MONGO_URI || "mongodb+srv://charvin:jxgrmv4zZTUUnfuP@ai.nw0f5ek.mongodb.net/agrihubdata";
 
 // Middleware
+// app.use(cors({
+//   origin: process.env.CLIENT_URL || "http://localhost:3000",
+//   credentials: true,
+// }));
 app.use(cors({
-  origin: process.env.CLIENT_URL || "http://localhost:3000",
+  origin: "https://agrihub-frontend.onrender.com", // Your deployed frontend URL
   credentials: true,
 }));
+
 app.use(bodyParser.json());
 app.use(express.json());
 
