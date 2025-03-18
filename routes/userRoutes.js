@@ -60,7 +60,7 @@ const router = express.Router();
 router.get("/me", isAuthenticated, getUserDetails);
 router.post("/register", registerUser);
 router.post("/login", loginUser);
-router.get("/profile", isAuthenticated, getUserProfile);
+router.get("/profile", getUserProfile);
 router.post("/logout", isAuthenticated, logoutUser); // Remove isAdmin here
 router.put("/change-password", isAuthenticated, changePassword);
 router.post("/forgot-password", forgotPassword);
