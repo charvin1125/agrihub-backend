@@ -162,6 +162,7 @@ const cors = require("cors");
 const session = require("express-session");
 const bodyParser = require("body-parser");
 const path = require("path");
+const MongoStore = require("connect-mongo");
 // require("dotenv").config(); // Load environment variables
 
 // Routes
@@ -193,10 +194,12 @@ app.use(cors({
 app.use(bodyParser.json());
 app.use(express.json());
 
+
 app.use(session({
   secret: process.env.SESSION_SECRET || "charvin1121",
   resave: false,
   saveUninitialized: false,
+  store: MongoStore.create({ mongoUrl: MONGO_URI }),
   cookie: {
     secure: process.env.NODE_ENV === "production",
     httpOnly: true,
@@ -216,7 +219,7 @@ app.use("/api/orders", orderRoutes);
 app.use("/api/bills", require("./routes/billRoutes"));
 app.use("/api/dashboard", dashboardRoutes);
 app.use("/api/labors", laborRoutes);
-app.use("/api", bookingRoutes);
+// app.use("/api", bookingRoutes);
 app.use("/api/services", serviceRoutes);
 app.use("/api/bookings", bookingRoutes);
 app.use("/api/review", reviewRoutes);

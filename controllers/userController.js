@@ -2,20 +2,6 @@ const { v4: uuidv4 } = require("uuid");
 const User = require("../models/User");
 
 
-// exports.registerUser = async (req, res) => {
-//     try {
-//         const { firstName, lastName, email, mobile } = req.body;
-//         const username = `CUST-${uuidv4().slice(0, 8).toUpperCase()}`;
-//         const password = mobile;
-
-//         const newUser = new User({ firstName, lastName, email, mobile, username, password, isAdmin: false });
-//         await newUser.save();
-
-//         res.status(201).json({ message: "User registered successfully", username });
-//     } catch (error) {
-//         res.status(500).json({ error: error.message });
-//     }
-// };
 const registerUser = async (req, res) => {
   try {
     const { firstName, lastName, mobile, securityQuestion, securityAnswer } = req.body;
@@ -58,24 +44,7 @@ const loginUser = async (req, res) => {
     }
 };
 
-// exports.logoutUser = (req, res) => {
-//   req.session.destroy((err) => {
-//       if (err) {
-//           return res.status(500).json({ message: "Logout failed" });
-//       }
-//       res.clearCookie("connect.sid"); // Clear session cookie
-//       res.status(200).json({ message: "Logged out successfully" });
-//   });
-// };
-// exports.logoutUser = async (req, res) => {
-//   try {
-//     // Clear session or token logic here (if applicable)
-//     res.clearCookie("connect.sid"); // Example for session-based auth
-//     res.status(200).json({ message: "Logged out successfully" });
-//   } catch (error) {
-//     res.status(500).json({ error: "Logout failed" });
-//   }
-// };
+
 
 const logoutUser = async (req, res) => {
   try {
