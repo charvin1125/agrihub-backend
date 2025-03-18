@@ -16,7 +16,7 @@ const {
   getTotalRevenue,
   getTotalOrders,
 } = require("../controllers/dashboardController");
-const { isAuthenticated, isAdmin } = require("../Middlewares/auth");
+const { isAuthenticated, isAdmin } = require("../middlewares/auth");
 
 router.get("/total-users", isAuthenticated, isAdmin, getTotalUsers);
 router.get("/total-revenue", isAuthenticated, isAdmin, getTotalRevenue);
