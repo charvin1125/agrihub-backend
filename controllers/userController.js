@@ -512,9 +512,9 @@ const logoutUser = async (req, res) => {
     res.status(500).json({ error: "Logout failed" });
   }
 };
-
 const getUserProfile = async (req, res) => {
   console.log("getUserProfile session:", req.session); // Debug log
+  console.log("getUserProfile session ID:", req.sessionID); // Debug log
   if (!req.session.user) {
     return res.status(401).json({ message: "Unauthorized. Please log in." });
   }
