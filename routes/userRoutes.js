@@ -39,14 +39,13 @@ const {
   verifyLoginOTP,
   getUserProfile,
   logoutUser,
-  getUserDetails,
   getAllCustomers,
   deleteCustomer,
 } = require("../controllers/userController");
 const { isAuthenticated, isAdmin } = require("../middlewares/auth");
 const router = express.Router();
 
-router.get("/me", isAuthenticated, getUserDetails);
+// router.get("/me", isAuthenticated, getUserDetails);
 router.post("/register", registerUser);
 router.post("/verify-register-otp", verifyRegisterOTP);
 router.post("/login", loginUser);
